@@ -9,7 +9,7 @@ interface Store {
 }
 
 export const useStore = create<Store>((set) => ({
-  isDarkMode: false,
+  isDarkMode: true, // Set dark mode as default
   toggleDarkMode: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
   language: 'en',
   setLanguage: (language) => set({ language }),
