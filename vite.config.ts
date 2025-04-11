@@ -10,10 +10,20 @@ export default defineConfig({
   server: {
     port: 5173,
     host: true,
-    open: true
+    open: true,
+    headers: {
+      'Content-Type': 'application/javascript',
+    },
   },
   preview: {
     port: 5173,
-    host: true
-  }
+    host: true,
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
 });
