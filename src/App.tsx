@@ -1,24 +1,27 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useStore } from './store/useStore';
 import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { Experience } from './components/Experience';
-import { Education } from './components/Education';
+import { Home } from './pages/Home';
+import { Portfolio } from './pages/Portfolio';
 
 function App() {
   const { isDarkMode } = useStore();
 
   return (
-    <div className={isDarkMode ? 'dark' : ''}>
-      <div className="min-h-screen bg-white dark:bg-gray-900">
-        <Header />
-        <main className="pt-16">
-          <Hero />
-          <Experience />
-          <Education />
-        </main>
+    <Router>
+      <div className={isDarkMode ? 'dark' : ''}>
+        <div className="min-h-screen bg-white dark:bg-gray-900">
+          <Header />
+          <main className="pt-16">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+            </Routes>
+          </main>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

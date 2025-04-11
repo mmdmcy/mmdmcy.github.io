@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Moon, Sun, Languages } from 'lucide-react';
 import { useStore } from '../store/useStore';
 import type { LanguageOption } from '../types';
@@ -20,10 +21,30 @@ export const Header: React.FC = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <Link to="/" className="text-2xl font-bold text-gray-900 dark:text-white">
             Jelle Ten Haken
-          </h1>
-          <div className="flex items-center space-x-4">
+          </Link>
+          <div className="flex items-center space-x-6">
+            <nav>
+              <ul className="flex space-x-6">
+                <li>
+                  <Link
+                    to="/"
+                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/portfolio"
+                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                  >
+                    Portfolio
+                  </Link>
+                </li>
+              </ul>
+            </nav>
             <div className="relative">
               <button
                 onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
