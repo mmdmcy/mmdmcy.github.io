@@ -146,6 +146,15 @@ export const Experience: React.FC = () => {
   const { language } = useStore();
   const t = translations[language];
 
+  const getTranslatedSkill = (skill: string): string => {
+    const technicalSkills = ['PyTorch', 'TensorFlow', 'GIS', 'CUDA', 'Linux', 'Windows', 'Microsoft Office', 'Cameras'];
+    if (technicalSkills.includes(skill)) {
+      return skill;
+    }
+    const skillKey = skill.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '') as keyof typeof translations[typeof language];
+    return t[skillKey] || skill;
+  };
+
   return (
     <section className="py-16 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -193,7 +202,7 @@ export const Experience: React.FC = () => {
                         key={i}
                         className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm"
                       >
-                        {skill}
+                        {getTranslatedSkill(skill)}
                       </span>
                     ))}
                   </div>

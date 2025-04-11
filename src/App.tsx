@@ -4,6 +4,7 @@ import { useStore } from './store/useStore';
 import { Header } from './components/Header';
 import { Home } from './pages/Home';
 import { Portfolio } from './pages/Portfolio';
+import { Cat } from './components/Cat';
 
 function App() {
   const { isDarkMode } = useStore();
@@ -19,6 +20,7 @@ function App() {
               <Route path="/portfolio" element={<Portfolio />} />
             </Routes>
           </main>
+          <Cat />
         </div>
       </div>
     </Router>

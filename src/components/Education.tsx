@@ -74,13 +74,22 @@ const education: Education[] = [
       sq: 'Specializim në Zhvillimin e Lojërave'
     },
     logo: '/hku.png',
-    skills: ['C#', 'Game Development', 'Unity', '3D Modeling', 'Teamleadership', 'Problem Solving', 'Game Design', 'Game Art', 'Scrum'],
+    skills: ['C#', 'Unity', '3D Modeling', 'Team Leadership', 'Problem Solving', 'Game Design', 'Game Art', 'Scrum'],
   },
 ];
 
 export const Education: React.FC = () => {
   const { language } = useStore();
   const t = translations[language];
+
+  const getTranslatedSkill = (skill: string): string => {
+    const technicalSkills = ['C++', 'Python', 'Machine Learning', 'AI', 'SQL', 'C#', 'Unity', '3D Modeling', 'Scrum'];
+    if (technicalSkills.includes(skill)) {
+      return skill;
+    }
+    const skillKey = skill.toLowerCase().replace(/\s+/g, '') as keyof typeof translations[typeof language];
+    return t[skillKey] || skill;
+  };
 
   return (
     <section className="py-16 bg-white dark:bg-gray-900">
@@ -116,7 +125,7 @@ export const Education: React.FC = () => {
                       key={i}
                       className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm"
                     >
-                      {skill}
+                      {getTranslatedSkill(skill)}
                     </span>
                   ))}
                 </div>
