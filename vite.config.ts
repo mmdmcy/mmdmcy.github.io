@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: './', // Change to relative path
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
@@ -12,9 +12,6 @@ export default defineConfig({
     port: 5173,
     host: true,
     open: true,
-    headers: {
-      'Content-Type': 'application/javascript',
-    },
   },
   preview: {
     port: 5173,
