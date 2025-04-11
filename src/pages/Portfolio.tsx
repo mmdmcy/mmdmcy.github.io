@@ -1,5 +1,5 @@
-import React from 'react';
-import { Github } from 'lucide-react';
+import React, { useState } from 'react';
+import { Github, X } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -85,7 +85,7 @@ const projects: Project[] = [
   {
     title: 'System Dynamics Simulator',
     githubLink: 'https://github.com/mmdmcy/System-Dynamics-Simulator',
-    description: 'Real-time system dynamics visualization and monitoring dashboard for high-precision manufacturing environments.',
+    description: 'A real-time system dynamics visualization and monitoring dashboard for high-precision manufacturing environments.',
     features: [
       'Real-Time Monitoring',
       'Interactive Controls',
@@ -99,6 +99,16 @@ const projects: Project[] = [
 ];
 
 export const Portfolio: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const handleImageClick = (image: string) => {
+    setSelectedImage(image);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div className="py-16 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,7 +123,8 @@ export const Portfolio: React.FC = () => {
                       key={imgIndex}
                       src={image}
                       alt={`${project.title} screenshot ${imgIndex + 1}`}
-                      className="w-full h-64 object-cover rounded-lg"
+                      className="w-full h-64 object-cover rounded-lg cursor-pointer transition-transform hover:scale-105"
+                      onClick={() => handleImageClick(image)}
                     />
                   ))}
                 </div>
@@ -155,6 +166,29 @@ export const Portfolio: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+          onClick={handleCloseModal}
+        >
+          <div className="relative max-w-7xl w-full">
+            <button
+              className="absolute top-4 right-4 text-white hover:text-gray-300 z-50"
+              onClick={handleCloseModal}
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Enlarged view"
+              className="max-h-[90vh] w-auto mx-auto object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
