@@ -38,7 +38,7 @@ const education: Education[] = [
       sq: 'Specializim në Inteligjencë Artificiale (IA), TIK'
     },
     logo: '/hu.png',
-    skills: ['C++', 'Python', 'Machine Learning', 'AI'],
+    skills: ['C++', 'Python', 'Machine Learning', 'AI', 'Mathematics', 'Computer Science', 'SQL', 'Data Visualization', 'Data Analytics', 'Scientific Research'],
   },
   {
     school: {
@@ -74,7 +74,7 @@ const education: Education[] = [
       sq: 'Specializim në Zhvillimin e Lojërave'
     },
     logo: '/hku.png',
-    skills: ['C#', 'Game Development', 'Unity', '3D Modeling'],
+    skills: ['C#', 'Game Development', 'Unity', '3D Modeling', 'Teamleadership', 'Problem Solving', 'Game Design', 'Game Art', 'Scrum'],
   },
 ];
 

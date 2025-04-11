@@ -69,7 +69,8 @@ const experiences: Experience[] = [
         'Performancë Efikase: Zhvillimi i sistemeve vizuale të machine learning të integruara me të dhëna gjeohapësinore, duke arritur 55% përmirësim në saktësi për analizën e çative.',
         'Rezultate më të Shpejta: Konvertimi i të dhënave gjeohapësinore në njohuri të veprueshme, duke reduktuar kohën e dizajnit me 50%.'
       ]
-    }
+    },
+    skills: ['PyTorch', 'TensorFlow', 'GIS', 'CUDA']
   },
   {
     company: {
@@ -136,7 +137,8 @@ const experiences: Experience[] = [
         'Ofrimi i mbështetjes së cilësisë së lartë me njohuri analitike, duke rezultuar në një vlerësim kënaqësie 9.2/10.',
         'Implementimi i teknikave AI dhe ML për zgjidhje efikase, 85% më shpejt se standardi për shkak të automatizimit.'
       ]
-    }
+    },
+    skills: ['Networking', 'Data Centers', 'Linux', 'Windows', 'Operations', 'Cameras', 'IT-Infrastructure', 'IT Support', 'Microsoft Office']
   }
 ];
 
@@ -185,6 +187,16 @@ export const Experience: React.FC = () => {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {exp.skills.map((skill, i) => (
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
